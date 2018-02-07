@@ -41,16 +41,18 @@ public class Hello {
     }
     
     public String getData() throws SQLException, ClassNotFoundException {
-        try {
+      try {
              Connection conn = Connectionbuilder.connect();
-            PreparedStatement  pstm = conn.prepareStatement("SELECT message FROM helloAgile WHERE ID = '1'");
+            PreparedStatement  pstm = conn.prepareStatement("select * from int206");
             ResultSet rs = pstm.executeQuery();
             
             while(rs.next())
-                message = rs.getString("message");
+                message = rs.getString("detail");
+            System.out.println(message);
             rs.close();
             pstm.close();
             conn.close();
+           
         } catch (Exception ex) {
             
         }
